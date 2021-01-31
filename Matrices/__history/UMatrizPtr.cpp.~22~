@@ -134,9 +134,9 @@ void MatrizPC::definir_valor_repetido(int valor) {
 				else if (e == aRep) {
 					NodoMC* x = new NodoMC;
 					if (x != NULL) {
-						x->fil = i;
-						x->col = j;
-						x->dato = aRep;
+						x->fil = f;
+						x->col = c;
+						x->dato = valor;
 						x->sig = ptrMatD;
 						ptrMatD = x;
 						nt++;

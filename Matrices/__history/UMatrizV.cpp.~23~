@@ -84,10 +84,24 @@ int MatrizV::elemento(int f, int c) {
 }
 
 void MatrizV::definfir_valor_repetido(int valor) {
-    repe = valor;
+	repe = valor;
+	//
+	int i = 0;
+	while (i < nt) {
+		if (vd[i] == valor) {
+			for (int j = i; j < nt; j++) {
+				vf[j] = vf[j + 1];
+				vc[j] = vc[j + 1];
+				vd[j] = vd[j + 1];
+			}
+			nt--;
+		}else
+			i++;
+	}
 }
 
-/* | 3 40 5 |
+/*
+ | 3 0 5 |
  | 0 1 0 |
  | 0 0 9 | */
 string MatrizV::to_str() {
@@ -100,7 +114,7 @@ string MatrizV::to_str() {
 		}
 		r += "|\n";
 	}
-	//
+	/*
 	int max = df * dc;
 	r += "vf: ";
 	for (int i = 0; i < max; i++)
@@ -111,6 +125,6 @@ string MatrizV::to_str() {
 	r += "\nvd: ";
 	for (int i = 0; i < max; i++)
 		r += to_string(vd[i]) + ",";
-	//
+	*/
 	return r;
 }

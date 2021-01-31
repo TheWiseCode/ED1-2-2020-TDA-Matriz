@@ -105,6 +105,7 @@ void MatrizPC::definir_valor_repetido(int valor) {
 	else {
 		int nRep = valor;
 		int aRep = repe;
+		repe = valor;
 		for (int i = 1; i <= df; i++) {
 			for (int j = 1; j <= dc; j++) {
 				int e = elemento(i, j);
@@ -130,23 +131,11 @@ void MatrizPC::definir_valor_repetido(int valor) {
 					delete(dir);
 					nt--;
 					//
-				}
-				else if (e == aRep) {
-					NodoMC* x = new NodoMC;
-					if (x != NULL) {
-						x->fil = i;
-						x->col = j;
-						x->dato = aRep;
-						x->sig = ptrMatD;
-						ptrMatD = x;
-						nt++;
-					}
-					else
-						cout << "ERROR NO EXISTE ESPACIO DE MEMORIA\n";
+				}else if(e == aRep){
+
 				}
 			}
 		}
-		repe = valor;
 	}
 
 }

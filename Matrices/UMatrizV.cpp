@@ -83,7 +83,7 @@ int MatrizV::elemento(int f, int c) {
 		cout << "ERROR FUERA DE RANGO\n";
 }
 
-void MatrizV::definfir_valor_repetido(int valor) {
+void MatrizV::definir_valor_repetido(int valor) {
 	repe = valor;
 	//
 	int i = 0;

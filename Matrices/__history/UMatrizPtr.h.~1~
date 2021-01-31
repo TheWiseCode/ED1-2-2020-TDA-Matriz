@@ -1,7 +1,7 @@
 //---------------------------------------------------------------------------
 
-#ifndef UMatrizPtrDbH
-#define UMatrizPtrDbH
+#ifndef UMatrizPtrH
+#define UMatrizPtrH
 //---------------------------------------------------------------------------
 #include <iostream>
 #include <string>
@@ -9,31 +9,21 @@
 
 using namespace std;
 
-struct NodoMc{
+struct NodoMC{
+    int fil;
     int col;
     int dato;
-    NodoMc* sigC;
+    NodoMC* sig;
 };
 
-struct NodoMf{
-    int fil;
-    NodoMf* antF;
-    NodoMf* sigF;
-    NodoMc* ptrCol;
-};
-
-
-class MatrizPD{
+class MatrizPC{
     private:
-        NodoMf* ptrFil;
-		int repe, df, dc;
-		int nt;
+        NodoMC* ptrMatD;
+        int repe, df, dc;
 
-        NodoMc* buscar(int f, int c);
-        NodoMf* buscar(int f);
-        NodoMf* posicionIns(int f);
+        NodoMC* buscar(int f, int c);
     public:
-        MatrizPD();
+        MatrizPC();
         void dimensionar(int f,int c);
         int dimension_fila();
         int dimension_columna();
@@ -43,4 +33,5 @@ class MatrizPD{
         string to_str();
 
 };
+
 #endif

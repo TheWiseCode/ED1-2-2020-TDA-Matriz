@@ -31,7 +31,7 @@ public:
 	int dimension_columna();
 	void poner(int f, int c, int valor);
 	int elemento(int f, int c);
-	void definir_valor_repetido(int valor);
+	void definfir_valor_repetido(int valor);
 	string to_str();
 };
 #endif

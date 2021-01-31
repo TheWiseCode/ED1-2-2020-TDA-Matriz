@@ -38,9 +38,11 @@ int MatrizVC::donde_insertar(int f, int c) {
     int max_elem = vf[f + 1 - 1] - vf[f - 1];
     for(int i = 0; i < max_elem; i++){
         lugar = lug_antes + i;
-        if(c > vc[lugar])
-            nuevo_lugar = lugar;
-    }
+		if(c == vc[lugar])
+//			return nuevo_lugar + 1;
+			nuevo_lugar = lugar;
+	}
+//	return -1;
 	return nuevo_lugar;
 } // determina donde insertar en vd,vc y vf
 
@@ -115,7 +117,7 @@ int MatrizVC::fila(int indiceVC){
     }
 }
 
-void MatrizVC::definfir_valor_repetido(int valor) {
+void MatrizVC::definir_valor_repetido(int valor) {
     repe = valor;
     int i = 0;
 	while (i < nt) {

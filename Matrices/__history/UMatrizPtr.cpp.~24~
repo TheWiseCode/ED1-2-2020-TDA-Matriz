@@ -136,7 +136,7 @@ void MatrizPC::definir_valor_repetido(int valor) {
 					if (x != NULL) {
 						x->fil = i;
 						x->col = j;
-						x->dato = aRep;
+						x->dato = valor;
 						x->sig = ptrMatD;
 						ptrMatD = x;
 						nt++;
