@@ -211,8 +211,9 @@ void MatrizPD::definir_valor_repetido(int valor) {
 					NodoMc* dirC = buscar(i, j);
 					suprimir(dirF, dirC);
 				}
-				else if (e == aRep)
-					insertar(i, j, aRep);
+				else if (e == aRep) {
+
+				}
 			}
 		}
 		repe = valor;

@@ -207,12 +207,41 @@ void MatrizPD::definir_valor_repetido(int valor) {
 			for (int j = 1; j <= dc; j++) {
 				int e = elemento(i, j);
 				if (e == nRep) {
-					NodoMf* dirF = buscar(i);
-					NodoMc* dirC = buscar(i, j);
-					suprimir(dirF, dirC);
+					NodoMC* dir = buscar(i, j);
+					// Codigo de suprimir
+					if (dir == ptrMatD)
+						ptrMatD = ptrMatD->sig;
+					else {
+						NodoMC* ant;
+						// Codido de anterior
+						NodoMC* x = ptrMatD;
+						ant = NULL;
+						while (x != NULL) {
+							if (x == dir)
+								break;
+							ant = x;
+							x = x->sig;
+						}
+						//
+						ant->sig = dir->sig;
+					}
+					delete(dir);
+					nt--;
+					//
 				}
-				else if (e == aRep)
-					insertar(i, j, aRep);
+				else if (e == aRep) {
+					NodoMC* x = new NodoMC;
+					if (x != NULL) {
+						x->fil = i;
+						x->col = j;
+						x->dato = aRep;
+						x->sig = ptrMatD;
+						ptrMatD = x;
+						nt++;
+					}
+					else
+						cout << "ERROR NO EXISTE ESPACIO DE MEMORIA\n";
+				}
 			}
 		}
 		repe = valor;

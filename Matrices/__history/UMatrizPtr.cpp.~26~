@@ -146,6 +146,7 @@ void MatrizPC::definir_valor_repetido(int valor) {
 		}
 		repe = valor;
 	}
+
 }
 
 string MatrizPC::to_str() {

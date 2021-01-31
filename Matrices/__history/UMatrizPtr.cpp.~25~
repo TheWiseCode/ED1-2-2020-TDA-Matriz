@@ -92,9 +92,11 @@ int MatrizPC::elemento(int f, int c) {
 void MatrizPC::definir_valor_repetido(int valor) {
 	bool hayRepe = false;
 	NodoMC* aux = ptrMatD;
-	while (aux != NULL && hayRepe == false) {
-		if (aux->dato == valor)
+	while (aux != NULL) {
+		if (aux->dato == valor) {
 			hayRepe = true;
+			break;
+		}
 		aux = aux->sig;
 	}
 	if (ptrMatD == NULL || hayRepe == false) {
@@ -146,6 +148,7 @@ void MatrizPC::definir_valor_repetido(int valor) {
 		}
 		repe = valor;
 	}
+
 }
 
 string MatrizPC::to_str() {

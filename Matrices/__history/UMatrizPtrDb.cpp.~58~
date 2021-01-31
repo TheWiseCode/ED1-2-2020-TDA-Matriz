@@ -169,9 +169,62 @@ void MatrizPD::poner(int f, int c, int valor) {
 				suprimir(dirFila, dir);
 			}
 		}
-		else if (valor != repe) // Insercion nueva
-				insertar(f, c, valor);
-
+		else if (valor != repe) { // Insercion nueva
+			NodoMc* x = new NodoMc;
+			if (x != NULL) {
+				x->col = c;
+				x->dato = valor;
+				x->sigC = NULL;
+			}
+			else {
+				cout << "ERROR NO EXISTE ESPACIO DE MEMORIA\n";
+				return;
+			}
+			NodoMf* dirFila = buscar(f);
+			if (dirFila != NULL) { // Ya existe la fila
+				x->sigC = dirFila->ptrCol;
+				dirFila->ptrCol = x;
+			}
+			else { // Insercion completamente nueva
+				insertar(f, c, valor); /*
+				 NodoMf* posF = posicionIns(f);
+				 NodoMf* xf = new NodoMf;
+				 xf->fil = f;
+				 xf->antF = NULL;
+				 xf->sigF = NULL;
+				 xf->ptrCol = NULL;
+				 if (posF == NULL) { // Vacio todo o insercion a lo ultimo
+				 if (ptrFil == NULL) { // Vacio
+				 ptrFil = xf;
+				 }
+				 else { // A lo ultimo
+				 NodoMf* fin = ptrFil;
+				 while (fin->sigF != NULL)
+				 fin = fin->sigF;
+				 xf->antF = fin;
+				 fin->sigF = xf;
+				 }
+				 }
+				 else { // Insercion con datos
+				 if (posF == ptrFil) { // Inserta al inicio
+				 xf->sigF = ptrFil;
+				 ptrFil->antF = xf;
+				 ptrFil = xf;
+				 }
+				 else { // Insercion por el medio
+				 NodoMf* ant = posF->antF;
+				 NodoMf* sig = posF;
+				 xf->sigF = sig;
+				 xf->antF = ant;
+				 ant->sigF = xf;
+				 sig->antF = xf;
+				 }
+				 }
+				 x->sigC = xf->ptrCol;
+				 xf->ptrCol = x;
+				 nt++; */
+			}
+		}
 	}
 }
 
@@ -201,21 +254,7 @@ void MatrizPD::definir_valor_repetido(int valor) {
 		repe = valor;
 	}
 	else {
-		int nRep = valor;
-		int aRep = repe;
-		for (int i = 1; i <= df; i++) {
-			for (int j = 1; j <= dc; j++) {
-				int e = elemento(i, j);
-				if (e == nRep) {
-					NodoMf* dirF = buscar(i);
-					NodoMc* dirC = buscar(i, j);
-					suprimir(dirF, dirC);
-				}
-				else if (e == aRep)
-					insertar(i, j, aRep);
-			}
-		}
-		repe = valor;
+
 	}
 }
 

@@ -21,8 +21,7 @@ int main() {
 	m->poner(3, 5, 1);
 	m->poner(3, 3, 1);
 	m->poner(5, 5, 1);
-	cout << m->to_str() << endl;
-	m->definir_valor_repetido(1);
+	// m->definir_valor_repetido(1);
 	cout << m->to_str() << endl;
 	system("pause");
 	return 0;
